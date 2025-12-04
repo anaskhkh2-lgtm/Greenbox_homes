@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>GreenBox Homes – Donner une seconde vie aux conteneurs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- CSS PART HEHEHEHEHEHE -->
+  <style>
+    :root {
+      --green: #2e7d32;
+      --light-green: #e8f5e9;
+      --dark: #1b1b1b;
+      --accent: #ffb300;
+      --white: #ffffff;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;}
+    body{background-color:#f5f5f5;color:#222;line-height:1.6;}
+    header{background:linear-gradient(135deg,var(--green),#43a047);color:var(--white);padding:0.8rem 8%;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;}
+    .logo-wrap{display:flex;align-items:center;gap:0.6rem;}
+    .logo-img{width:40px;height:40px;border-radius:50%;object-fit:cover;border:2px solid var(--accent);background:#fff;}
+    .logo{font-weight:800;font-size:1.2rem;letter-spacing:1px;}
+    .logo span{color:var(--accent);}
+    nav a{color:var(--white);text-decoration:none;margin-left:1.5rem;font-size:0.95rem;opacity:0.9;}
+    nav a:hover{opacity:1;text-decoration:underline;}
+    .hero{padding:4rem 8% 3rem;display:grid;grid-template-columns:minmax(0,2fr) minmax(260px,1.4fr);gap:3rem;align-items:center;background:var(--light-green);}
+    .hero h1{font-size:clamp(2.2rem,4vw,3rem);margin-bottom:1rem;color:var(--dark);}
+    .hero h1 span{color:var(--green);}
+    .hero p{font-size:1rem;max-width:34rem;margin-bottom:1.5rem;}
+    .tagline{font-weight:600;color:var(--green);margin-bottom:0.5rem;}
+    .hero-buttons{display:flex;flex-wrap:wrap;gap:1rem;margin-top:1rem;}
+    .btn{border:none;cursor:pointer;padding:0.8rem 1.4rem;border-radius:999px;font-size:0.95rem;font-weight:600;display:inline-flex;align-items:center;gap:0.4rem;text-decoration:none;}
+    .btn-primary{background-color:var(--green);color:var(--white);}
+    .btn-secondary{background-color:var(--white);color:var(--green);border:1px solid #c8e6c9;}
+    .hero-note{font-size:0.8rem;opacity:0.8;margin-top:0.5rem;}
+    .hero-card{background-color:var(--white);border-radius:1.2rem;padding:1.5rem;box-shadow:0 12px 30px rgba(0,0,0,0.08);}
+    .hero-card h2{font-size:1.1rem;margin-bottom:0.5rem;}
+    .hero-stat{display:block;justify-content:space-between;margin: 0;font-size:0.9rem;}
+    .hero-badge{display:inline-block;padding:0.3rem 0.7rem;border-radius:999px;background-color:var(--light-green);color:var(--green);font-size:0.8rem;margin-bottom:0.7rem;}
+    .hero-image{width:100%;border-radius:0.9rem;margin-top:1rem;object-fit:cover;max-height:200px;}
+    section{padding:3rem 8%;}
+    section h2{font-size:1.7rem;margin-bottom:0.8rem;color:var(--dark);}
+    section p.section-intro{max-width:40rem;margin-bottom:1.5rem;font-size:0.95rem;opacity:0.9;}
+    .grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.5rem;margin-top:1rem;}
+    .card{background-color:var(--white);border-radius:1rem;padding:1.3rem;box-shadow:0 6px 18px rgba(0,0,0,0.06);font-size:0.95rem;}
+    .card h3{font-size:1.05rem;margin-bottom:0.3rem;}
+    .card span.icon{font-size:1.2rem;margin-right:0.3rem;}
+    .highlight{background-color:#fffde7;border-left:4px solid var(--accent);padding:0.9rem 1rem;border-radius:0.4rem;font-size:0.9rem;margin-top:0.8rem;}
+    .two-column{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(260px,1fr);gap:2rem;margin-top:1.5rem;}
+    .badge{display:inline-block;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--green);background-color:var(--light-green);padding:0.3rem 0.7rem;border-radius:999px;margin-bottom:0.7rem;}
+    ul{padding-left:1.1rem;font-size:0.92rem;}
+    ul li{margin-bottom:0.3rem;}
+    .impact-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.3rem;margin-top:1rem;}
+    .impact-card{background-color:var(--white);border-radius:1rem;padding:1rem;text-align:center;box-shadow:0 6px 18px rgba(0,0,0,0.04);}
+    .impact-number{font-size:1.6rem;font-weight:700;color:var(--green);}
+    .impact-label{font-size:0.9rem;opacity:0.9;}
+    .mini{font-size:0.8rem;opacity:0.8;margin-top:0.4rem;}
+    .gallery-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin-top:1rem;}
+    .gallery-item{background:var(--white);border-radius:0.9rem;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,0.05);font-size:0.85rem;}
+    .gallery-item img{width:100%;height:180px;object-fit:cover;display:block;}
+    .gallery-item p{padding:0.6rem 0.8rem 0.8rem;}
+    .video-wrapper{margin-top:1.5rem;background:var(--white);padding:1rem;border-radius:1rem;box-shadow:0 6px 18px rgba(0,0,0,0.05);}
+    .video-wrapper h3{font-size:1rem;margin-bottom:0.5rem;}
+    .video-frame{width:100%;max-width:640px;aspect-ratio:16/9;margin:0 auto;border-radius:0.8rem;overflow:hidden;background:#000;}
+    .video-frame video,.video-frame iframe{width:100%;height:100%;border:none;display:block;}
+    .cta{background:linear-gradient(135deg,var(--green),#66bb6a);color:var(--white);text-align:center;padding:3rem 8%;}
+    .cta h2{color:var(--white);margin-bottom:0.5rem;}
+    .cta p{max-width:36rem;margin:0.5rem auto 1.5rem;font-size:0.95rem;opacity:0.95;}
+    .cta .btn-secondary{border-color:rgba(255,255,255,0.5);color:var(--dark);}
+    footer{background-color:#111;color:#bbb;padding:1.5rem 8%;font-size:0.8rem;display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;}
+    footer a{color:#ddd;text-decoration:none;}
+    footer a:hover{text-decoration:underline;}
+    @media(max-width:900px){
+      .hero{grid-template-columns:1fr;}
+      .two-column{grid-template-columns:1fr;}
+      .grid-3,.impact-grid,.gallery-grid{grid-template-columns:1fr;}
+      header{flex-direction:column;align-items:flex-start;gap:0.6rem;}
+      nav{display:flex;flex-wrap:wrap;gap:0.7rem;}
+      nav a{margin-left:0;}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-wrap">
+      <img src="png gbh.png" alt="Logo GreenBox Homes" class="logo-img">
+      <div class="logo">GreenBox<span>Homes</span></div>
+    </div>
+    <nav>
+      <a href="#about">Projet</a>
+      <a href="#how">Fonctionnement</a>
+      <a href="#impact">Impact</a>
+      <a href="#gallery">Galerie</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div>
+        <p class="tagline">Du conteneur métal au “chez-soi” chaleureux.</p>
+        <h1>
+          Nous transformons des conteneurs maritimes en
+          <span>maisons écologiques et autonomes.</span>
+        </h1>
+        <p>
+          Pendant que la construction classique prend des années ,
+          nous recyclons des conteneurs pour créer des logements sûrs, rapides et durables —
+          surtout pour celles et ceux qui ne peuvent pas attendre “un jour”.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#impact" class="btn btn-primary">Voir qui nous aidons →</a>
+          <a href="#about" class="btn btn-secondary">Comprendre le projet</a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="hero-badge">Projet conceptuel · Initiative étudiante</div>
+        <h2>Imaginez :</h2>
+        <div class="hero-stat">
+          <span>1 conteneur usagé</span>
+          <span> = 1 mini-maison isolée</span>
+        </div>
+        <div class="hero-stat">
+          <span>Autonome</span>
+          <span> = Énergie solaire + eau</span>
+        </div>
+        <div class="hero-stat">
+          <span>Acier recyclé</span>
+          <span>Moins de déchets, plus de vies</span>
+        </div>
+        <img src="hero.png" alt="Maison conteneur éco-responsable" class="hero-image">
+        <div class="highlight">
+          “Pourquoi des familles vivent-elles encore sous des tentes des années après un séisme,
+          alors que les ports sont pleins de conteneurs qui ne servent à rien ?”
+        </div>
+      </div>
+    </section>
+
+    <!-- PART 2 -->
+    <section id="about">
+      <div class="badge">À propos du projet</div>
+      <h2>GreenBox Homes – un logement qui n’attend pas un miracle.</h2>
+      <p class="section-intro">
+        L’idée est simple : récupérer des conteneurs maritimes en fin de vie,
+        les transformer en maisons modulaires autonomes, et les déployer là où
+        des gens ont besoin d’un toit <em>maintenant</em>, pas après plusieurs discours.
+      </p>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3><span class="icon">♻️</span>Nous recyclons l’acier</h3>
+          <p>
+            Au lieu de laisser les conteneurs rouiller dans les ports, nous les
+            upcyclons en structures solides, isolées, avec fenêtres et confort réel.
+          </p>
+        </div>
+        <div class="card">
+          <h3><span class="icon">🔌</span>Prêt pour l’auto-suffisance</h3>
+          <p>
+            Panneaux solaires, réservoirs d’eau et gestion de base de l’énergie.
+            Des logements qui ne paniquent pas à chaque facture d’électricité.
+          </p>
+        </div>
+        <div class="card">
+          <h3><span class="icon">🏠</span>Déploiement rapide</h3>
+          <p>
+            D’un terrain vide à “vous pouvez dormir ici ce soir” en beaucoup moins
+            de temps que la construction traditionnelle.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how">
+      <div class="badge">Comment ça marche</div>
+      <h2>Du conteneur au cocon : notre démarche.</h2>
+      <p class="section-intro">
+        Nous avons imaginé une approche modulaire afin que chaque GreenBox puisse être adaptée :
+        abris d’urgence, logements étudiants, cabanes rurales ou espaces communautaires.
+      </p>
+
+      <div class="two-column">
+        <div>
+          <h3>1. Identifier le besoin</h3>
+          <ul>
+            <li>Familles sinistrées après séisme vivant encore sous des tentes.</li>
+            <li>Personnes sans-abri ayant besoin d’un abri digne.</li>
+            <li>Zones éloignées où la construction classique est trop lente ou trop chère.</li>
+          </ul>
+
+          <h3 style="margin-top:1rem;">2. Transformer le conteneur</h3>
+          <ul>
+            <li>Contrôle de la structure, traitement de la rouille et découpe des ouvertures.</li>
+            <li>Isolation thermique et phonique (métal + soleil = four, on connaît…).</li>
+            <li>Installation des portes, fenêtres, ventilation et aménagement intérieur.</li>
+          </ul>
+
+          <h3 style="margin-top:1rem;">3. Ajouter les options off-grid</h3>
+          <ul>
+            <li>Panneaux solaires et installation électrique de base.</li>
+            <li>Stockage d’eau et gestion des eaux grises.</li>
+            <li>Toilettes sèches et matériaux éco-responsables en option.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Pourquoi des conteneurs ?</h3>
+          <p>
+            Ils sont solides, empilables et conçus pour survivre aux traversées maritimes.
+            Donc oui, ils peuvent gérer un peu de pluie et de vent sur terre.
+          </p>
+          <div class="highlight">
+            Solution traditionnelle : “Nous travaillons sur un plan.”<br>
+            Notre approche : “Voici une porte. Elle ferme. Vous pouvez dormir.”
+          </div>
+          <p style="margin-top:0.7rem;font-size:0.88rem;opacity:0.9;">
+            Dans ce projet scolaire, nous concevons le modèle et le concept,
+            avec l’espoir que, demain, des organisations avec bien plus de moyens
+            puissent le déployer réellement.
+          </p>
+        </div>
+      </div>
+
+      <div class="video-wrapper">
+        <h3>Vidéo du concept – 60 secondes pour comprendre</h3>
+        <p style="font-size:0.9rem; margin-bottom:0.6rem;">
+          Remplacez ce bloc par votre propre vidéo (présentation, animation 3D, etc.).
+        </p>
+        <div class="video-frame">
+          <video width="900" controls>
+          <source src="how it works vid.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <!-- someshit now -->
+    <section id="impact">
+      <div class="badge">Qui nous voulons aider</div>
+      <h2>Des problèmes réels. Des personnes réelles. Des conteneurs réels.</h2>
+      <p class="section-intro">
+        Notre inspiration vient de ce que nous avons observé au Maroc et ailleurs :
+        des personnes vivant encore sous des tentes ou dans la rue, alors que des
+        matériaux et des solutions existent déjà… mais ne sont pas utilisés à temps.
+      </p>
+
+      <div class="impact-grid">
+        <div class="impact-card">
+          <div class="impact-number">01</div>
+          <div class="impact-label">Familles sinistrées</div>
+          <p class="mini">
+            Au lieu de rester des mois ou des années sous des tentes, les unités GreenBox
+            peuvent offrir un abri isolé, verrouillable et résistant aux intempéries.
+          </p>
+        </div>
+        <div class="impact-card">
+          <div class="impact-number">02</div>
+          <div class="impact-label">Personnes sans-abri</div>
+          <p class="mini">
+            Des micro-logements modulaires dans des espaces urbains disponibles :
+            petits, sûrs, et plus respectueux de la dignité de chacun.
+          </p>
+        </div>
+        <div class="impact-card">
+          <div class="impact-number">03</div>
+          <div class="impact-label">Communautés autonomes</div>
+          <p class="mini">
+            Cabanes rurales, logements étudiants ou bases de vie pour travailleurs,
+            pouvant fonctionner avec très peu d’infrastructures.
+          </p>
+        </div>
+      </div>
+
+      <div class="highlight" style="margin-top:1.5rem;">
+        Nous savons que notre projet ne résoudra pas toute la crise du logement
+        (nous sommes étudiants, pas magiciens), mais nous pouvons montrer que
+        des solutions <strong>plus rapides, plus vertes et plus créatives</strong> existent.
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery">
+      <div class="badge">Galerie</div>
+      <h2>Du bloc de métal au foyer habitable.</h2>
+      <p class="section-intro">
+        Ces images illustrent l’esprit de GreenBox Homes : recycler des conteneurs,
+        créer des espaces de vie modulaires, et redonner un minimum de confort et de dignité.
+        Remplacez les photos par vos rendus ou visuels.
+      </p>
+
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="containers in port.jpg" alt="Conteneurs empilés dans un port">
+          <p>Avant : des conteneurs qui dorment au port, sans utilité sociale.</p>
+        </div>
+        <div class="gallery-item">
+          <img src="containers during.png" alt="Travaux de transformation d’un conteneur">
+          <p>Pendant : découpe, isolation et aménagement de l’intérieur.</p>
+        </div>
+        <div class="gallery-item">
+          <img src="final product.jpg" alt="Mini-maison terminée à partir d’un conteneur">
+          <p>Après : une mini-maison autonome, prête à être habitée.</p>
+        </div>
+      </div>
+
+      <div class="video-wrapper">
+        <h3>Les personnes concernées</h3>
+        <div class="video-frame">
+          <!---partie dial anwar l vid dialo now we wait :))))-->
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="badge">Projet scolaire</div>
+      <h2>Envie d’en savoir plus sur GreenBox Homes ?</h2>
+      <p class="section-intro">
+        Ce site web fait partie d’un projet scolaire sur la création d’une entreprise
+        écologique et socialement utile. L’idée est réaliste, l’entreprise (pour l’instant)
+        est théorique. L’objectif : montrer que transformer des conteneurs en logements,
+        ce n’est pas de la science-fiction, juste une question de priorité.
+      </p>
+
+      <div class="two-column">
+        <div>
+          <h3>Notre mission en une phrase</h3>
+          <p>
+            Transformer des conteneurs abandonnés en maisons intelligentes et autonomes
+            pour des personnes qui ne peuvent plus attendre que “le système” se réveille.
+          </p>
+
+          <h3 style="margin-top:1rem;">Si le projet devenait réel, nos partenaires cibles :</h3>
+          <ul>
+            <li>ONG et associations accompagnant les victimes de séismes.</li>
+            <li>Collectivités cherchant des solutions rapides de relogement.</li>
+            <li>Délégations, donateurs privés et entreprises engagées.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Contact (dans le cadre du module)</h3>
+          <p style="font-size:0.92rem;">
+            Nom de l’équipe : <strong>GreenBox Homes – TEAM sbo3a</strong><br>
+            E-mail : <em>Anas.Khalkallah@emsi-edu.ma</em><br>
+            Classe : <em> 1er Année Préparatoire</em>
+          </p>
+          <p class="highlight" style="margin-top:0.7rem;">
+            Madame Sara Tadlaoui, si vous lisez ceci : oui, nous avons utilisé notre cerveau (80%)
+            <em>et</em> un peu d’IA(20%). On appelle ça “travailler intelligemment”, pas tricher. 😉
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <section class="cta">
+    <h2>Les conteneurs n’ont pas de sentiments. Les humains, si.</h2>
+    <p>
+      Alors nous recyclons les conteneurs, et nous protégeons les humains.  
+      Si vous ne retenez qu’une seule idée de ce projet, que ce soit celle-ci :
+      <strong>le logement peut être plus rapide, plus vert et plus intelligent</strong>.
+    </p>
+    <div class="hero-buttons" style="justify-content:center;">
+      <a href="#about" class="btn btn-primary">Retour en haut</a>
+      <a href="#impact" class="btn btn-secondary">Revoir l’impact</a>
+    </div>
+  </section>
+
+  <footer>
+    <div>© GreenBox Homes – Projet étudiant. Tous droits réservés (et tous les conteneurs recyclés… en théorie pour l’instant).</div>
+    <div>Réalisé par Anas Khalkallah, Anwar sanaaoui, Abdelwahad Mouddy, Amine belhora avec du café, de l’empathie, et une pointe de sarcasme.</div>
+  </footer>
+</body>
+</html>
