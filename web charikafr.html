@@ -91,6 +91,7 @@
       <a href="#how">Fonctionnement</a>
       <a href="#impact">Impact</a>
       <a href="#gallery">Galerie</a>
+      <a href="#quiz">participer</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
@@ -314,6 +315,135 @@
         </div>
       </div>
     </section>
+    <section id="quiz">
+  <div class="badge">Participer au projet</div>
+  <h2>Quiz & formulaire – êtes-vous prêt à agir ?</h2>
+  <p class="section-intro">
+    Cette section est un <strong>quiz–formulaire</strong> : elle permet de sensibiliser
+    sur la réalité du logement après un séisme et de simuler la prise de contact
+    d’un donateur ou d’une personne en besoin de logement urgent.
+    (Projet scolaire – données non réellement envoyées.)
+  </p>
+
+  <div class="two-column">
+    <!-- Colonne gauche : mini-quiz -->
+    <div class="card">
+      <h3>1. Mini-quiz de sensibilisation</h3>
+      <p style="font-size:0.9rem; margin-bottom:0.6rem;">
+        Quelques questions pour se rendre compte de l’ampleur du problème.
+      </p>
+
+      <div class="field-group">
+        <label style="font-size:0.9rem; font-weight:600;">
+          Q1. Après un séisme comme celui d’Al Haouz, combien de temps, selon vous,
+          des familles peuvent-elles rester dans des abris temporaires ?
+        </label>
+        <ul style="list-style:none; padding-left:0; font-size:0.9rem; margin-top:0.4rem;">
+          <li><label><input type="radio" name="q1"> Quelques jours seulement</label></li>
+          <li><label><input type="radio" name="q1"> Quelques semaines</label></li>
+          <li><label><input type="radio" name="q1"> Parfois plusieurs mois, voire années</label></li>
+        </ul>
+      </div>
+
+      <div class="field-group" style="margin-top:0.8rem;">
+        <label style="font-size:0.9rem; font-weight:600;">
+          Q2. Quel est, selon vous, l’impact principal d’un logement indigne ?
+        </label>
+        <ul style="list-style:none; padding-left:0; font-size:0.9rem; margin-top:0.4rem;">
+          <li><label><input type="radio" name="q2"> Seulement le confort</label></li>
+          <li><label><input type="radio" name="q2"> Santé, dignité et stabilité familiale</label></li>
+          <li><label><input type="radio" name="q2"> Aucun impact sérieux</label></li>
+        </ul>
+      </div>
+
+      <p style="font-size:0.8rem; opacity:0.8; margin-top:0.8rem;">
+        (Il n’y a pas de “note” ici : l’objectif est de faire réfléchir, pas de
+        vous piéger 😉)
+      </p>
+    </div>
+
+    <!-- Colonne droite : formulaire don / demande -->
+    <div class="card">
+      <h3>2. Simuler une participation</h3>
+      <p style="font-size:0.9rem; margin-bottom:0.6rem;">
+        Choisissez votre situation, puis remplissez les informations.  
+        À la validation, un message de confirmation s’affichera.
+      </p>
+
+      <form id="participation-form">
+        <div class="field-group" style="margin-bottom:0.6rem;">
+          <label for="type-participant" style="font-size:0.9rem; font-weight:600;">Je suis :</label>
+          <select id="type-participant" name="type-participant" required style="width:100%; padding:0.4rem; border-radius:0.4rem; border:1px solid #ccc; font-size:0.9rem;">
+            <option value="">-- Sélectionnez une option --</option>
+            <option value="donateur">Un(e) donateur / mécène potentiel</option>
+            <option value="besoin-logement">Une personne / famille en besoin de logement</option>
+            <option value="association">Une association / commune intéressée</option>
+          </select>
+        </div>
+
+        <div class="field-group" style="margin-bottom:0.6rem;">
+          <label for="nom" style="font-size:0.9rem; font-weight:600;">Nom et prénom :</label>
+          <input type="text" id="nom" name="nom" required
+                 style="width:100%; padding:0.4rem; border-radius:0.4rem; border:1px solid #ccc; font-size:0.9rem;">
+        </div>
+
+        <div class="field-group" style="margin-bottom:0.6rem;">
+          <label for="email" style="font-size:0.9rem; font-weight:600;">E-mail (facultatif) :</label>
+          <input type="email" id="email" name="email"
+                 style="width:100%; padding:0.4rem; border-radius:0.4rem; border:1px solid #ccc; font-size:0.9rem;">
+        </div>
+
+        <div class="field-group" style="margin-bottom:0.6rem;">
+          <label for="localisation" style="font-size:0.9rem; font-weight:600;">Localisation / région :</label>
+          <input type="text" id="localisation" name="localisation"
+                 placeholder="Ex : Région d’Al Haouz, Maroc"
+                 style="width:100%; padding:0.4rem; border-radius:0.4rem; border:1px solid #ccc; font-size:0.9rem;">
+        </div>
+
+        <div class="field-group" style="margin-bottom:0.6rem;">
+          <label for="nb-personnes" style="font-size:0.9rem; font-weight:600;">
+            Nombre de personnes concernées par le logement :
+          </label>
+          <input type="number" id="nb-personnes" name="nb-personnes" min="1"
+                 style="width:100%; padding:0.4rem; border-radius:0.4rem; border:1px solid #ccc; font-size:0.9rem;">
+        </div>
+
+        <div class="field-group" style="margin-bottom:0.6rem;">
+          <label for="situation-familiale" style="font-size:0.9rem; font-weight:600;">Situation familiale :</label>
+          <select id="situation-familiale" name="situation-familiale"
+                  style="width:100%; padding:0.4rem; border-radius:0.4rem; border:1px solid #ccc; font-size:0.9rem;">
+            <option value="">-- Sélectionnez --</option>
+            <option value="couple-enfants">Couple avec enfants</option>
+            <option value="famille-elargie">Famille élargie</option>
+            <option value="personne-seule">Personne seule</option>
+            <option value="autre">Autre situation</option>
+          </select>
+        </div>
+
+        <div class="field-group" style="margin-bottom:0.8rem;">
+          <label for="message" style="font-size:0.9rem; font-weight:600;">Message / commentaire :</label>
+          <textarea id="message" name="message" rows="3"
+                    placeholder="Décrivez la situation ou votre intérêt pour le projet..."
+                    style="width:100%; padding:0.4rem; border-radius:0.4rem; border:1px solid #ccc; font-size:0.9rem;"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="margin-top:0.4rem;">
+          Envoyer la simulation
+        </button>
+
+        <p id="quiz-result-message" class="success-message"
+           style="display:none; margin-top:0.8rem; font-size:0.9rem; padding:0.6rem 0.8rem; border-radius:0.6rem; background:#e8f5e9; color:#1b5e20;">
+          <!-- Le texte sera rempli par JavaScript -->
+        </p>
+
+        <p style="font-size:0.75rem; opacity:0.7; margin-top:0.4rem;">
+          (Dans le cadre du projet scolaire, ce formulaire est une simulation :
+          aucune donnée n’est réellement stockée ou envoyée.)
+        </p>
+      </form>
+    </div>
+  </div>
+</section>
 
     <!-- CONTACT -->
     <section id="contact">
@@ -377,3 +507,4 @@
   </footer>
 </body>
 </html>
+
